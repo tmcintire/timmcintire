@@ -1,0 +1,52 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { WorkItem } from './WorkItem';
+
+const Loading = require('react-loading-animation');
+
+@connect(store => ({
+  data: store.data.data,
+}))
+export class Work extends React.Component {
+  render() {
+    const showHeader = () => {
+      if (this.props.data.loading === true) {
+        return <Loading />;
+      }
+      if (this.props.data.loading === false) {
+        const { header } = this.props.data.portfolio;
+        return (
+          <p className="text-center">{header}</p>
+        );
+      }
+      return true;
+    };
+    const showWork = () => {
+      if (this.props.data.loading === true) {
+        return <Loading />;
+      }
+      if (this.props.data.loading === false) {
+        const { work } = this.props.data.portfolio;
+        return Object.keys(work).map(item => (
+          <WorkItem key={item} id={item} {...work[item]} />
+        ));
+      }
+      return true;
+    };
+    return (
+      <div className="page-container">
+        <h1 className="text-center">My Work</h1>
+        {showHeader()}
+        <hr />
+        {showWork()}
+      </div>
+    );
+  }
+}
+
+Work.propTypes = {
+  data: React.PropTypes.shape({
+    portfolio: React.PropTypes.string,
+    loading: React.PropTypes.boolean,
+  }),
+};

@@ -1,0 +1,18 @@
+.blog-content {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.btn-custom {
+  background: #CF5F39;
+}
+
+.btn-custom:hover {
+  background: rgba(207, 95, 57, 0.9);
+}
+
+@media (max-width: 600px) {
+  .blog-content {
+    width: 100%;
+  }
+}

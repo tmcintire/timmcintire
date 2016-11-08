@@ -1,0 +1,38 @@
+.portfolio-image {
+  width: 350px;
+  height: 175px;
+  z-index: 9999;
+  opacity: 1;
+  border: 1.5px solid black;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 1px black;
+  transition: 0.3s ease-in-out 0s;
+}
+
+.portfolio-image:hover {
+  transform: scale(1.02);
+  transition: 0.3s ease-in-out 0s;
+  box-shadow: 3px 3px 3px black;
+}
+
+.portfolio-section {
+  width: 325px;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  flex-grow: 1;
+  margin: 0 20px 20px 20px;
+}
+
+.work-title {
+  font-weight: bold;
+  font-size: 100%;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .portfolio-image {
+    width: 100%;
+  }
+}
