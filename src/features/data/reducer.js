@@ -20,7 +20,7 @@ const data = (state = [], action) => {
         loading: false,
         blog: {
           ...state.blog,
-          [action.postData.id]: action.postData,
+          ...action.postData,
         },
       };
     case 'START_FETCHING_BLOG_POST':

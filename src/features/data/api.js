@@ -47,20 +47,50 @@ export function createPost(postData) {
   firebaseRef.child('blog').push().set(postData);
 }
 
+/* Function to sort array in ascending order */
+export function sortArrayAscending(a, b) {
+  return new Date(a.date).getTime() - new Date(b.date).getTime();
+}
+
+/* Function to sort array in descending order */
+export function sortArrayDescending(b, a) {
+  return new Date(a.date).getTime() - new Date(b.date).getTime();
+}
+
+// Function order events given a direction
+export function orderPosts(posts, direction) {
+  // Create an array of the returned events
+  const postsList = posts;
+  const postsArray = [];
+  Object.keys(postsList).map((post) => { //eslint-disable-line
+    postsList[post].id = post;
+    postsArray.push(postsList[post]);
+  });
+
+
+  // Sort the events
+  if (direction === 'ascending') {
+    postsArray.sort(sortArrayAscending);
+  } else {
+    postsArray.sort(sortArrayDescending);
+  }
+
+  // Send the objects back into an object
+  const postsObject = {};
+  postsArray.map((post) => { //eslint-disable-line
+    postsObject[post.id] = post;
+  });
+
+  return postsObject;
+}
+
 export function fetchBlogPosts() {
   firebaseRef.child('blog').on('value', (snapshot) => {
     const blogData = snapshot.val();
-    if (blogData) {
-      Object.keys(blogData).forEach((post) => {
-        firebaseRef.child('blog').child(post).on('value', (newSnapshot) => {
-          const postData = newSnapshot.val();
-          postData.id = post;
-          store.dispatch(actions.startFetchingBlogPost());
-          store.dispatch(actions.fetchBlogPost(postData));
-        });
-      });
-    }
-    // store.dispatch(actions.setPortfolioPage(portfolioData));
+    const postsObject = orderPosts(blogData, 'descending');
+    store.dispatch(actions.startFetchingBlogPost());
+
+    store.dispatch(actions.fetchBlogPost(postsObject));
   });
 }
 
