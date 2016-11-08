@@ -15,7 +15,6 @@ export class Messages extends React.Component {
     api.fetchMessages();
   }
   render() {
-    console.log(this.props);
     const showMessages = () => {
       if (this.props.messages.loading === true) {
         return <Loading />;
@@ -23,7 +22,10 @@ export class Messages extends React.Component {
       if (this.props.messages.loading === false) {
         const { messages } = this.props.messages;
         return Object.keys(messages).map(message => (
-          <Message key={message} id={message} {...messages[message]} />
+          <div>
+            <Message key={message} id={message} {...messages[message]} />
+            <hr />
+          </div>
         ));
       }
       return true;
@@ -36,3 +38,10 @@ export class Messages extends React.Component {
     );
   }
 }
+
+Messages.propTypes = {
+  messages: React.PropTypes.shape({
+    loading: React.PropTypes.bool,
+    messages: React.PropTypes.object, // eslint-disable-line
+  }),
+};

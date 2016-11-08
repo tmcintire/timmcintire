@@ -46,3 +46,14 @@ export class EditPortfolioEntry extends React.Component {
     );
   }
 }
+
+EditPortfolioEntry.propTypes = {
+  data: React.PropTypes.shape({
+    portfolio: React.PropTypes.shape({
+      work: React.PropTypes.object // eslint-disable-line
+    }),
+  }),
+  params: React.PropTypes.shape({
+    id: React.PropTypes.string,
+  }),
+};

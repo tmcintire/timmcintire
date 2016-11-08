@@ -6,16 +6,16 @@ import * as api from '../../../data/api';
   data: store.data.data,
 }))
 export class EditAbout extends React.Component {
-  cancel() {
-    window.location = '#/edit';
-  }
   constructor() {
     super();
     this.state = {
       about_message: '',
     };
   }
-  save() {
+  cancel = () => {
+    window.location = '#/edit';
+  }
+  save = () => {
     api.updateAbout(this.about.value);
     this.setState({
       about_message: 'Saved!',
@@ -27,10 +27,16 @@ export class EditAbout extends React.Component {
         <h3 className="text-center">Edit About Page</h3>
         <textarea className="form-control"rows="8" ref={(ref) => { this.about = ref; }} defaultValue={this.props.data.about} />
         <br />
-        <button className="btn-spacing btn btn-primary" onClick={() => this.save()}>Save</button>
-        <button className="btn-spacing btn btn-danger" onClick={() => this.cancel()}>Cancel</button>
+        <button className="btn-spacing btn btn-primary" onClick={this.save}>Save</button>
+        <button className="btn-spacing btn btn-danger" onClick={this.cancel}>Cancel</button>
         <p className="success-message">{this.state.about_message}</p>
       </div>
     );
   }
 }
+
+EditAbout.propTypes = {
+  data: React.PropTypes.shape({
+    about: React.PropTypes.string,
+  }),
+};

@@ -32,3 +32,11 @@ export class EditPortfolio extends React.Component {
     );
   }
 }
+
+EditPortfolio.propTypes = {
+  data: React.PropTypes.shape({
+    portfolio: React.PropTypes.shape({
+      work: React.PropTypes.object, // eslint-disable-line
+    }),
+  }),
+};
