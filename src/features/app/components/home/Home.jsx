@@ -3,10 +3,9 @@ import React from 'react';
 export const Home = () => (
   <div>
     <div className="mobile-site-header">
-      <h3 className="text-center">Hello,</h3>
-      <h3 className="text-center">I build awesome web applications.</h3>
-      <h3 className="text-center">And I build them with: </h3>
+      <h3 className="text-center">I build web applications for people and organizations.</h3>
     </div>
+    <h3 className="stack-header text-center">My stack: </h3>
     <div className="circle-container">
       <div id="javascript-border" className="circle">
         Javascript
@@ -14,8 +13,8 @@ export const Home = () => (
       <div id="react-border" className="circle">
         React
       </div>
-      <div id="django-border" className="circle">
-        Django
+      <div id="firebase-border" className="circle">
+        Firebase
       </div>
       <div id="html-border" className="circle">
         HTML
