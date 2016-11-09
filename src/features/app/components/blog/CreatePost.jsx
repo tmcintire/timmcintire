@@ -15,14 +15,13 @@ export class CreatePost extends React.Component {
   }
   render() {
     return (
-      <div className="main-container">
+      <div className="page-container">
         <h1 className="text-center">Blog</h1>
-        <form>
-          <input type="text" ref={(ref) => { this.title = ref; }} placeholder="title" />
-          <input type="text" ref={(ref) => { this.author = ref; }} placeholder="author" />
-          <textarea rows="8" ref={(ref) => { this.content = ref; }} />
-          <button className="button" onClick={e => this.handleSubmit(e)}>Submit</button>
-        </form>
+        <input className="form-control" type="text" ref={(ref) => { this.title = ref; }} placeholder="title" />
+        <input className="form-control" type="text" ref={(ref) => { this.author = ref; }} placeholder="author" />
+        <textarea className="form-control" rows="8" ref={(ref) => { this.content = ref; }} />
+        <br />
+        <button className="btn btn-primary" onClick={e => this.handleSubmit(e)}>Submit</button>
       </div>
     );
   }

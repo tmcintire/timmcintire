@@ -13,7 +13,7 @@ export class PostDetails extends React.Component {
     super();
     api.fetchBlogPosts();
   }
-  handleBack() {
+  handleBack = () => {
     window.location = '#/blog';
   }
   render() {
@@ -31,7 +31,7 @@ export class PostDetails extends React.Component {
         ));
         return (
           <div className="page-container">
-            <button className="btn btn-custom btn-lg" onClick={() => this.handleBack()}>Back to Blog</button>
+            <button className="btn btn-custom btn-lg" onClick={this.handleBack}>Back to Blog</button>
             <h3 className="text-center">{blog[postId].title}</h3>
             <p className="text-center">{blog[postId].date}</p>
             <p className="text-center">Author: {blog[postId].author}</p>
