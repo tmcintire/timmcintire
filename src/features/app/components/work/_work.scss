@@ -34,5 +34,10 @@
 @media (max-width: 600px) {
   .portfolio-image {
     width: 100%;
+    height: auto;
+  }
+
+  .portfolio-section {
+    width: 90%;
   }
 }

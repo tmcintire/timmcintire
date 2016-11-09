@@ -90,6 +90,20 @@ $circle-color-end: rgba(203, 80, 38, 0.7);
   }
 }
 
+@media (max-width: 1119px) {
+  .circle {
+    height: 180px;
+    width: 180px;
+  }
+}
+
+@media (max-width: 915px) {
+  .circle {
+    height: 160px;
+    width: 160px;
+  }
+}
+
 @media (max-width: 768px) {
   .title {
     font-size: 4em;
