@@ -37,10 +37,10 @@ export class Nav extends React.Component {
               <li>
                 <Link to="/contact" onClick={this.closeMenu} className="link" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>Contact</Link>
               </li>
-              <li className="social-facebook">
+              <li className="social-group">
                 <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100009296419518"><i className="fa fa-facebook" /></a>
               </li>
-              <li className="social-linkedin">
+              <li className="social-group">
                 <a target="_blank" rel="noopener noreferrer" href="http://www.linkedin.com/in/tim-mcintire"><i className="fa fa-linkedin-square" /></a>
               </li>
             </ul>
