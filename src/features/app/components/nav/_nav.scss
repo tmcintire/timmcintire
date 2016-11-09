@@ -30,9 +30,16 @@ $nav-title-size: 2em;
   overflow-y: hidden;
 }
 
-.social-group {
-  margin: 0 -5px;
+.social-facebook, .social-linkedin {
   font-size: 1.2em;
+}
+
+.social-facebook {
+  margin: 0 -15px;  
+}
+
+.social-linkedin {
+  margin: 0 20px;
 }
 
 
