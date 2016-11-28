@@ -51,7 +51,7 @@ ReactDOM.render(
         <Route path="/about" component={About} />
         <Route path="/work" component={Work} />
         <Route path="/contact" component={Contact} />
-        <Route path="/messages" component={Messages} />
+        <Route path="/messages" component={Messages} onEnter={requireLogin} />
         <Route path="/blog" component={Blog} />
         <Route path="/blog/:id" component={PostDetails} />
         <Route path="/login" component={Login} onEnter={redirectIfLoggedIn} />
@@ -61,7 +61,7 @@ ReactDOM.render(
         <Route path="/edit/portfolio/header" component={EditPortfolioHeader} onEnter={requireLogin} />
         <Route path="/edit/portfolio/add" component={AddPortfolioItem} onEnter={requireLogin} />
         <Route path="/edit/portfolio/:id" component={EditPortfolioEntry} onEnter={requireLogin} />
-        <Route path="/createpost" component={CreatePost} />
+        <Route path="/createpost" component={CreatePost} onEnter={requireLogin} />
       </Route>
     </Router>
   </Provider>,

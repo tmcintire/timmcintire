@@ -68,10 +68,7 @@ const messages = (state = [], action) => {
       return {
         ...state,
         loading: false,
-        messages: {
-          ...state.messages,
-          [action.messageData.id]: action.messageData,
-        },
+        messages: action.messages,
       };
     default:
       return state;

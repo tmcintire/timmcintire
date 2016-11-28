@@ -108,20 +108,19 @@ export function sendMessage(message) {
   firebaseRef.child('messages').push().set(message);
 }
 
+// update a messages status to read
+export function changeStatusToRead(message) {
+  firebaseRef.child('messages').child(message).update({
+    read: 'read',
+  });
+}
+
 // Get Messages
 export function fetchMessages() {
-  firebaseRef.child('messages').on('value', (snapshot) => {
-    const messages = snapshot.val();
-    if (messages) {
-      Object.keys(messages).forEach((message) => {
-        firebaseRef.child('messages').child(message).on('value', (newSnapshot) => {
-          const messageData = newSnapshot.val();
-          messageData.id = message;
-          store.dispatch(actions.startFetchingMessages());
-          store.dispatch(actions.fetchMessages(messageData));
-        });
-      });
-    }
+  store.dispatch(actions.startFetchingMessages());
+  firebaseRef.child('messages').orderByChild('date').on('value', (snapshot) => {
+    const messages = snapshot.val() || {};
+    store.dispatch(actions.fetchMessages(messages));
   });
 }
 

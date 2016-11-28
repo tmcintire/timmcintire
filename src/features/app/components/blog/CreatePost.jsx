@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router';
 import * as api from '../../../data/api';
 
 export class CreatePost extends React.Component {
@@ -16,6 +17,7 @@ export class CreatePost extends React.Component {
   render() {
     return (
       <div className="page-container">
+        <Link to="edit"><button className="btn btn-primary">Back</button></Link>
         <h1 className="text-center">Blog</h1>
         <input className="form-control" type="text" ref={(ref) => { this.title = ref; }} placeholder="title" />
         <input className="form-control" type="text" ref={(ref) => { this.author = ref; }} placeholder="author" />

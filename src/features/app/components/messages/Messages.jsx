@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import * as api from '../../../data/api';
 import { Message } from './Message';
 
@@ -14,6 +15,9 @@ export class Messages extends React.Component {
     super();
     api.fetchMessages();
   }
+  updateStatus = (id) => {
+    api.changeStatusToRead(id);
+  }
   render() {
     const showMessages = () => {
       if (this.props.messages.loading === true) {
@@ -22,10 +26,12 @@ export class Messages extends React.Component {
       if (this.props.messages.loading === false) {
         const { messages } = this.props.messages;
         return Object.keys(messages).map(message => (
-          <div>
-            <Message key={message} id={message} {...messages[message]} />
-            <hr />
-          </div>
+          <Message
+            updateStatus={id => this.updateStatus(id)}
+            key={message}
+            id={message}
+            {...messages[message]}
+          />
         ));
       }
       return true;
@@ -33,6 +39,7 @@ export class Messages extends React.Component {
     return (
       <div className="main-container">
         <h1 className="text-center">Messages</h1>
+        <Link to="edit"><button className="btn btn-primary back-btn">Back</button></Link>
         {showMessages()}
       </div>
     );

@@ -33,9 +33,9 @@ export const startFetchingBlogPost = () => ({
   type: 'START_FETCHING_BLOG_POST',
 });
 
-export const fetchMessages = messageData => ({
+export const fetchMessages = messages => ({
   type: 'RECEIVED_MESSAGES',
-  messageData,
+  messages,
 });
 
 export const startFetchingMessages = () => ({

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import * as api from '../../../data/api';
 
 export class Contact extends React.Component {
@@ -13,6 +14,8 @@ export class Contact extends React.Component {
       name: this.name.value,
       email: this.email.value,
       message: this.message.value,
+      date: moment().format('LLLL'),
+      read: 'unread',
     };
     this.setState({
       success_message: 'Sent!',

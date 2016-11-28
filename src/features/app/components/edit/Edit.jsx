@@ -33,6 +33,8 @@ export class Edit extends React.Component {
         <div className="edit-list">
           <li><Link to="/edit/about">Edit About</Link></li>
           <li><Link to="/edit/portfolio">Edit Portfolio</Link></li>
+          <li><Link to="/messages">View Messages</Link></li>
+          <li><Link to="/createpost">Create New Blog Post</Link></li>
         </div>
       </div>
     );
