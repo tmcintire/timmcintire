@@ -26,9 +26,6 @@ export class PostDetails extends React.Component {
       if (this.props.data.loading === false) {
         const postId = this.props.params.id;
         const { blog } = this.props.data;
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(blog[postId].content, 'text/html');
-        console.log(doc);
         const parsedContent = blog[postId].content.split('\n').map((item, index) => (
           <PostSection key={index} text={item} />
         ));
@@ -40,7 +37,7 @@ export class PostDetails extends React.Component {
             <p className="text-center">Author: {blog[postId].author}</p>
             <hr />
             <div className="blog-content">
-
+              {parsedContent}
             </div>
           </div>
         );

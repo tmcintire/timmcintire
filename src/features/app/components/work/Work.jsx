@@ -9,11 +9,12 @@ const Loading = require('react-loading-animation');
 }))
 export class Work extends React.Component {
   render() {
+    const { loading } = this.props.data;
     const showHeader = () => {
-      if (this.props.data.loading === true) {
+      if (loading === true || loading === undefined) {
         return <Loading />;
       }
-      if (this.props.data.loading === false) {
+      if (loading === false) {
         const { header } = this.props.data.portfolio;
         return (
           <p className="text-center">{header}</p>
@@ -22,10 +23,10 @@ export class Work extends React.Component {
       return true;
     };
     const showWork = () => {
-      if (this.props.data.loading === true) {
+      if (loading === true) {
         return <Loading />;
       }
-      if (this.props.data.loading === false) {
+      if (loading === false) {
         const { work } = this.props.data.portfolio;
         return Object.keys(work).map(item => (
           <WorkItem key={item} id={item} {...work[item]} />
