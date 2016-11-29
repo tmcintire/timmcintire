@@ -1,9 +1,15 @@
+.portfolio-container {
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
 .portfolio-image {
   width: 350px;
-  height: 175px;
+  height: auto;
   z-index: 9999;
   opacity: 1;
   border: 1.5px solid black;
+  margin: 0 auto;
   margin-bottom: 10px;
   box-shadow: 1px 1px 1px black;
   transition: 0.3s ease-in-out 0s;
@@ -16,28 +22,57 @@
 }
 
 .portfolio-section {
-  width: 325px;
+  position: relative;
+  overflow-y: auto;
+  width: 30%;
+  height: 575px!important;
   display: inline-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   flex-shrink: 0;
   flex-grow: 1;
-  margin: 0 20px 20px 20px;
+  margin: 20px 20px 20px 20px;
+  padding: 5px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px black;
+  background: #F8F8F8;
+
+  .image-wrapper {
+    width: 100%!important;
+  }
 }
 
 .work-title {
+  font-size: 1.3em!important;
   font-weight: bold;
   font-size: 100%;
   width: 100%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1670px) {
+  .portfolio-section {
+    width: 30%;
+    margin: 15px 15px 15px 15px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .portfolio-section {
+    width: 45%;
+  }
   .portfolio-image {
     width: 100%;
     height: auto;
   }
+}
 
+@media (max-width: 900px) {
   .portfolio-section {
-    width: 90%;
+    width: 100%;
+    height: auto!important;
+    margin: 10px 0 auto;
+  }
+  .portfolio-image {
+    width: 100%;
+    height: auto;
   }
 }

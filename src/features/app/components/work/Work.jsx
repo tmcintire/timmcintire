@@ -38,7 +38,9 @@ export class Work extends React.Component {
         <h1 className="text-center">My Work</h1>
         {showHeader()}
         <hr />
-        {showWork()}
+        <div className="portfolio-container">
+          {showWork()}
+        </div>
       </div>
     );
   }

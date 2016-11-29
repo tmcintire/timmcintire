@@ -8,8 +8,12 @@ export const WorkItem = props => (
         <img role="presentation" className="img-responsive portfolio-image" src={props.imgUrl} />
       </div>
     </a>
-    <p><strong>Description: </strong>{props.description}</p>
-    <p><strong>Technologies Used: </strong>{props.tech} </p>
+
+    <h4 className="text-center"><u>Technologies Used</u></h4>
+    <p>{props.tech}</p>
+
+    <h4 className="text-center"><u>Summary</u></h4>
+    <p className="description">{props.description}</p>
   </div>
 );
 
